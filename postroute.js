@@ -3,7 +3,7 @@ const app = express()
 const port = 8080
 
 
-app.use(express.json())
+
 
 app.get("/",(req,res)=>{
     res.send("Home Page")
@@ -12,7 +12,7 @@ app.get("/",(req,res)=>{
 app.post("/register", (req,res)=>{
     const {email,password} = req.body
     console.log(req.body)
-    if(email !== null && password != null){
+    if(!name || !email || !password){
         res.send("User registered")
     }
     else{
