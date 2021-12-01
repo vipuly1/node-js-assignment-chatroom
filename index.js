@@ -4,6 +4,9 @@ const app = express()
 const port = 8080
 
 const expressroute = require("./route")
+const postroute = require("./postroute")
+
+app.use(express.json())
 
 const isAdmin = false
 
@@ -16,6 +19,7 @@ app.use((req, res, next)=>{
     }
 
 })
+app.use(postroute)
 app.use(expressroute)
 app.use("*", (req, res) => {
     res.status(404).send("404 not found")
